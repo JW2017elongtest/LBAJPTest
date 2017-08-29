@@ -17,7 +17,7 @@ pipeline {
       steps {
         echo 'Test some things'
         unstash 'pom-config'
-        readFile(file: 'config', encoding: 'UTF-8')
+        configFile = readFile(file: 'config', encoding: 'UTF-8')
         echo 'configFile'
       }
     }
