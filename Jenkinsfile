@@ -27,6 +27,6 @@ pipeline {
     }
   }
   environment {
-    configValue = ''
+    configValue = 'null'
   }
 }
