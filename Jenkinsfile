@@ -17,7 +17,6 @@ pipeline {
       steps {
         echo 'Test some things'
         unstash 'pom-config'
-        readFile(file: 'config', encoding: 'UTF-8')
         echo 'configValue'
       }
     }
@@ -26,5 +25,8 @@ pipeline {
         echo 'Deploy some things'
       }
     }
+  }
+  environment {
+    configValue = ''
   }
 }
