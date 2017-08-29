@@ -17,8 +17,8 @@ pipeline {
       steps {
         echo 'Test some things'
         unstash 'pom-config'
-        configFile = readFile(file: 'config', encoding: 'UTF-8')
-        echo 'configFile'
+        readFile(file: 'config', encoding: 'UTF-8')
+        echo 'configValue'
       }
     }
     stage('Deploy') {
