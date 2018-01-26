@@ -14,11 +14,21 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'Test some things'
-        unstash 'pom-config'
-        readFile(encoding: 'UTF-8', file: 'config')
-        echo 'configValue'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Test some things'
+            unstash 'pom-config'
+            readFile(encoding: 'UTF-8', file: 'config')
+            echo 'configValue'
+          }
+        }
+        stage('supertest') {
+          steps {
+            sleep 2
+            echo 'winning'
+          }
+        }
       }
     }
     stage('Deploy') {
